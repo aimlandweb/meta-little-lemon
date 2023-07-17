@@ -1,0 +1,22 @@
+.navbar {
+	position: relative;
+	height: 5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.3rem 1rem;
+}
+
+.hamburger {
+	display: block;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 780px) {
+	.navbar {
+		padding: 2rem 10rem;
+	}
+	.hamburger {
+		display: none;
+	}
+}

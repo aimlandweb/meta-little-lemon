@@ -1,0 +1,44 @@
+.hero {
+	background-color: #495e57;
+	width: 100%;
+	padding: 3rem 1rem;
+	font-family: 'Markazi Text', serif;
+}
+
+.hero h1 {
+	color: #f4ce14;
+	font-size: 4rem;
+}
+.hero h2 {
+	font-size: 2.5rem;
+	color: #edefee;
+	margin-bottom: 1rem;
+}
+
+.hero p {
+	font-size: 1rem;
+	font-weight: 400;
+	color: #edefee;
+	max-width: 350px;
+	margin-bottom: 1rem;
+	font-family: Karla, serif;
+	line-height: 1.5;
+}
+
+.hero a {
+	display: block;
+	width: -moz-fit-content;
+	width: fit-content;
+	background-color: #f4ce14;
+	color: #333333;
+  font-size: 1rem;
+	border-radius: 1rem;
+	padding: 1rem 1.5rem;
+	font-family: Karla, serif;
+}
+
+@media screen and (min-width: 780px) {
+	.hero {
+		padding: 3.5rem 10rem;
+	}
+}
