@@ -27,6 +27,7 @@
   font-weight: bold;
 }
 .itemPrice {
+	  font-size: 1.3rem;
 }
 .itemDescription {
 	margin-bottom: 1rem;
@@ -43,6 +44,7 @@
 	font-weight: bold;
 }
 .itemDeliveryIcon {
+	font-size: 1.5rem;
 }
 
 @media screen and (max-width: 580px) {

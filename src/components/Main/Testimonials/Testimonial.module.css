@@ -1,6 +1,45 @@
-.testimonial{}
-.rating{}
-.profile{}
-.profilePicture{}
-.userName{}
-.review{}
+.testimonial {
+	background-color: #edefee;
+	margin: 1rem;
+	padding: 1.5rem;
+	width: 80%;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-family: Karla, serif;
+}
+.rating {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.profile {
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.profilePicture {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.userName {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.review {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+@media screen and (min-width: 780px) {
+	.testimonial {
+		width: 280px;
+		border-top-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+}
