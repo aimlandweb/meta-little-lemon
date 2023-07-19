@@ -7,10 +7,10 @@ const Testimonials = () => {
 		<section className={styles.testimonials}>
 			<h1 className={styles.heading}>Testimonials</h1>
 			<div className={styles.userRatings}>
-				<Testimonial src='/raterOne.jpeg' testimony={testimonies[0]} />
-				<Testimonial src='/raterTwo.jpeg' testimony={testimonies[1]} />
-				<Testimonial src='/raterThree.jpeg' testimony={testimonies[2]} />
-				<Testimonial src='/raterFour.jpeg' testimony={testimonies[3]} />
+				<Testimonial src='/raterOne.jpg' testimony={testimonies[0]} />
+				<Testimonial src='/raterTwo.jpg' testimony={testimonies[1]} />
+				<Testimonial src='/raterThree.jpg' testimony={testimonies[2]} />
+				<Testimonial src='/raterFour.jpg' testimony={testimonies[3]} />
 			</div>
 		</section>
 	);
