@@ -8,22 +8,22 @@ const MenuItems: React.FC<MenuItemsProps> = ({ isOpen }) => {
 	return (
 		<ul className={`${styles['navMenu']} ${isOpen ? styles.open : ''}`}>
 			<li>
-				<a href='/home'>Home</a>
+				<a href='/'>Home</a>
 			</li>
 			<li>
-				<a href='/home'>About</a>
+				<a href='#about'>About</a>
 			</li>
 			<li>
 				<a href='/home'>Menu</a>
 			</li>
 			<li>
-				<a href='/home'>Reservations</a>
+				<a href='/booking'>Reservations</a>
 			</li>
 			<li>
-				<a href='/home'>Order Online</a>
+				<a href='/'>Order Online</a>
 			</li>
 			<li>
-				<a href='/home'>Login</a>
+				<a href='/'>Login</a>
 			</li>
 		</ul>
 	);

@@ -2,10 +2,17 @@ import styles from './About.module.css';
 
 const About = () => {
 	return (
-		<section className={styles.about}>
+		<section className={styles.about} id='#about'>
 			<div className={styles.aboutInfo}>
-				<h1 className={styles.restaurantName}>Little Lemon</h1>
-				<h3 className={styles.location}>Chicago</h3>
+				<h1
+					className={styles.restaurantName}
+					data-testid='about-restaurant-title'
+				>
+					Little Lemon
+				</h1>
+				<h3 className={styles.location} data-testid='about-restaurant-location'>
+					Chicago
+				</h3>
 				<p className={styles.description}>
 					Welcome to Little Lemon, Chicago's charming neighborhood bistro, a
 					dream brought to life by two friends, Arian and Mario! Indulge in

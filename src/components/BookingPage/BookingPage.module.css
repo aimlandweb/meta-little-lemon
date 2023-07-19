@@ -1,0 +1,61 @@
+.bookingPage {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #495e57;
+	font-family: Karla, serif;
+}
+
+.bookingPage h1 {
+	font-size: 2.5rem;
+	word-wrap: break-word;
+	margin-bottom: 2.5rem;
+}
+
+.bookingSlotsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bookingSlotsContainer h2 {
+	font-size: 1.5rem;
+	font-family: Karla, serif;
+	color: #f4ce14;
+}
+.bookedSlots {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.5rem;
+	
+}
+.availableSlots {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.highlightDate {
+	color: #edefee;
+}
+
+.noBooking {
+	margin: 1rem;
+	color: red;
+	font-size: 1.1rem;
+}
+.noSlots {
+	margin: 1rem;
+	color: red;
+	font-size: 1.1rem;
+}
+
+@media screen and (min-width: 580px) {
+}
+
+@media screen and (min-width: 780px) {
+	.bookingPage {
+		padding: 4.5rem 8rem;
+	}
+}

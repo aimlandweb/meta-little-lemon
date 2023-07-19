@@ -1,0 +1,63 @@
+.bookingForm {
+	padding: 4rem 1rem;
+	font-family: Karla, serif;
+}
+
+.heading {
+	font-size: 4rem;
+	color: #f4ce14;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 550px;
+}
+
+.formField {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.5rem;
+	margin-bottom: 1.5rem;
+	color: #edefee;
+}
+
+.formField label {
+	margin-right: 10px;
+}
+
+.formField input::placeholder {
+	background-color: #edefee;
+}
+
+.select {
+	padding: 0.5rem 1rem;
+	color: #edefee;
+	background-color: #333333;
+	border-radius: 1rem;
+}
+
+.input {
+	background-color: #333333;
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+	color: #edefee;
+	text-align: center;
+}
+
+
+.input::placeholder {
+	color: #333333;
+}
+
+.button {
+	background-color: #f4ce14;
+	color: #333333;
+	padding: 1rem 1.5rem;
+	border-radius: 1rem;
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	cursor: pointer;
+}

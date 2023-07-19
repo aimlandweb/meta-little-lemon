@@ -8,43 +8,43 @@ const Footer = () => {
 				<ul className={styles.footerNavLinks}>
 					<li>Doormat Navigation</li>
 					<li>
-						<a href=''>Home</a>
+						<a href='/'>Home</a>
 					</li>
 					<li>
-						<a href=''>About</a>
+						<a href='#about'>About</a>
 					</li>
 					<li>
-						<a href=''>Menu</a>
+						<a href='#menu'>Menu</a>
 					</li>
 					<li>
-						<a href=''>Reservations</a>
+						<a href='/booking'>Reservations</a>
 					</li>
 					<li>
-						<a href=''>Order Online</a>
+						<a href='/'>Order Online</a>
 					</li>
 					<li>
-						<a href=''>Login</a>
+						<a href='/'>Login</a>
 					</li>
 				</ul>
 				<ul className={styles.footerNavLinks}>
 					<li>Contact</li>
 					<li>
-						<a href=''>Phone No</a>
+						<a href='+1 568-475-0471'>Phone No</a>
 					</li>
 					<li>
-						<a href=''>Email</a>
+						<a href='online@littlelemon.com'>Email</a>
 					</li>
 				</ul>
 				<ul className={styles.footerNavLinks}>
 					<li>Socials</li>
 					<li>
-						<a href=''>Facebook</a>
+						<a href='https://www.facebook.com/littlelemon'>Facebook</a>
 					</li>
 					<li>
-						<a href=''>Twitter</a>
+						<a href='https://www.twitter.com/littlelemon'>Twitter</a>
 					</li>
 					<li>
-						<a href=''>Instagram</a>
+						<a href='https://www.instagram.com/littlelemon'>Instagram</a>
 					</li>
 				</ul>
 			</nav>
