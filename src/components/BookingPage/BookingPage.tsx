@@ -1,31 +1,15 @@
-import { useState, ChangeEvent, FormEvent, useReducer } from 'react';
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import BookingForm, { FormData } from './BookingForm/BookingForm';
 import BookingSlot from './BookingSlot/BookingSlot';
 import styles from './BookingPage.module.css';
 
 export interface Submission extends FormData {
+	id: string;
 	date: string;
 	time: string;
 	noOfGuests: number;
 	occasion: string;
 }
-
-interface SubmissionAction {
-	type: 'SUBMIT_FORM';
-	payload: Submission[];
-}
-
-const submissionReducer = (
-	state: Submission[],
-	action: SubmissionAction
-): Submission[] => {
-	switch (action.type) {
-		case 'SUBMIT_FORM':
-			return [...state, ...action.payload];
-		default:
-			return state;
-	}
-};
 
 const BookingPage: React.FC = () => {
 	const [date, setDate] = useState<string>(
@@ -34,7 +18,7 @@ const BookingPage: React.FC = () => {
 	const [noOfGuests, setNoOfGuests] = useState<number>(1);
 	const [occasion, setOccasion] = useState<string>('Birthday');
 	const [time, setTime] = useState<string>('17:00');
-	const [availableTimes, dispatchTimes] = useReducer(submissionReducer, []);
+	const [availableTimes, setAvailableTimes] = useState<Submission[]>([]);
 
 	const defaultSlots = [
 		'',
@@ -70,23 +54,51 @@ const BookingPage: React.FC = () => {
 		setOccasion(e.target.value);
 	};
 
-	const handleSubmit = (e: FormEvent) => {
+	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-		dispatchTimes({
-			type: 'SUBMIT_FORM',
-			payload: [
-				{
-					date,
-					time,
-					noOfGuests,
-					occasion,
-				},
-			],
-		});
+		const payload = {
+			date,
+			time,
+			noOfGuests,
+			occasion,
+		};
+		const options = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		};
+		const response = await fetch(
+			'http://localhost:5500/api/submitAPI',
+			options
+		);
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+		const data: Submission = await response.json();
+
+		setAvailableTimes((prev) => [...prev, data]);
+
 		setTime('');
 		setNoOfGuests(1);
 		setOccasion('Birthday');
 	};
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch('http://localhost:5500/api/fetchAPI');
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				const data: Submission[] = await response.json();
+				setAvailableTimes(data);
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		})();
+	}, [date, time, noOfGuests, occasion]);
 
 	return (
 		<section className={styles.bookingPage}>
@@ -106,22 +118,6 @@ const BookingPage: React.FC = () => {
 			/>
 
 			<div className={styles.bookingSlotsContainer}>
-				<h2>Booked Slots</h2>
-				<div className={styles.bookedSlots}>
-					{availableTimes.length > 0 ? (
-						availableTimes.map((slot) => {
-							return (
-								<BookingSlot
-									key={`${slot.date}-${slot.time}`}
-									date={slot.date}
-									time={slot.time}
-								/>
-							);
-						})
-					) : (
-						<p className={styles.noBooking}>No Booking Found!</p>
-					)}
-				</div>
 				<h2>
 					{`Available Slots For `}
 					<span className={styles.highlightDate}>{`${date}`}</span>
@@ -135,6 +131,22 @@ const BookingPage: React.FC = () => {
 						})
 					) : (
 						<p className={styles.noSlots}>No Slots available for {`${date}`}</p>
+					)}
+				</div>
+				<h2>Booked Slots</h2>
+				<div className={styles.bookedSlots}>
+					{availableTimes.length > 0 ? (
+						availableTimes.map((slot) => {
+							return (
+								<BookingSlot
+									key={`${slot.id}`}
+									date={slot.date}
+									time={slot.time}
+								/>
+							);
+						})
+					) : (
+						<p className={styles.noBooking}>No Booking Found!</p>
 					)}
 				</div>
 			</div>

@@ -6,6 +6,10 @@
 .heading {
 	font-size: 4rem;
 	color: #f4ce14;
+	text-align: center;
+	background-color: #333333;
+	padding: 0.7rem;
+	border-radius: 5px;
 }
 
 .form {
@@ -60,4 +64,5 @@
 	font-size: 1.5rem;
 	margin-top: 1rem;
 	cursor: pointer;
+	width: 100%;
 }

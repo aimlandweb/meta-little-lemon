@@ -18,22 +18,26 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-width: 550px;
 }
 
 .bookingSlotsContainer h2 {
 	font-size: 1.5rem;
 	font-family: Karla, serif;
 	color: #f4ce14;
+	margin-top: 1.5rem;
 }
 .bookedSlots {
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 1.5rem;
-	
+	justify-content: center;
 }
 .availableSlots {
 	display: flex;
 	flex-wrap: wrap;
+	font-size: 1.5rem;
+	justify-content: center;
 }
 
 .highlightDate {
