@@ -1,0 +1,16 @@
+.confirmedBooking {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #495e57;
+	font-family: Karla, serif;
+	padding: 4rem 1rem;
+}
+
+@media screen and (min-width: 780px) {
+	.confirmedBooking {
+		padding: 4.5rem 8rem;
+	}
+}

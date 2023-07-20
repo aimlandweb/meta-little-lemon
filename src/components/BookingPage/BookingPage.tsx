@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookingForm, { FormData } from './BookingForm/BookingForm';
 import BookingSlot from './BookingSlot/BookingSlot';
 import styles from './BookingPage.module.css';
@@ -12,6 +13,7 @@ export interface Submission extends FormData {
 }
 
 const BookingPage: React.FC = () => {
+	const navigate = useNavigate()
 	const [date, setDate] = useState<string>(
 		new Date().toISOString().split('T')[0]
 	);
@@ -83,6 +85,7 @@ const BookingPage: React.FC = () => {
 		setTime('');
 		setNoOfGuests(1);
 		setOccasion('Birthday');
+		navigate('/confirmed',{state:payload})
 	};
 
 	useEffect(() => {
