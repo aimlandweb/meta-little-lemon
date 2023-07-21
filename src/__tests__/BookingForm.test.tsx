@@ -24,3 +24,23 @@ it('renders the text "Book Now"', () => {
 	expect(formHeading).toBeInTheDocument();
 	expect(formHeading).toHaveTextContent('Book Now');
 });
+
+it('validates that the time input field has the "required" attribute', () => {
+	render(
+		<BookingForm
+			date=''
+			time=''
+			noOfGuests={1}
+			occasion='Birthday'
+			onDateChange={() => {}}
+			onTimeChange={() => {}}
+			onNoOfGuestsChange={() => {}}
+			onOccasionChange={() => {}}
+			onSubmit={() => {}}
+			availableTimes={[]}
+		/>
+	);
+
+	const timeInput = screen.getByTestId('form-time');
+	expect(timeInput).toHaveAttribute('min', '1');
+});
