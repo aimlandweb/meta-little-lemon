@@ -8,9 +8,11 @@ interface Options {
 	body: string;
 }
 
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 export const fetchAPI = async (): Promise<Submission[] | []> => {
 	try {
-		const response = await fetch('http://localhost:5500/api/fetchAPI');
+		const response = await fetch(`${baseURL}/api/fetchAPI`);
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
 		}
@@ -26,10 +28,7 @@ export const submitAPI = async (
 	options: Options
 ): Promise<Submission | null> => {
 	try {
-		const response = await fetch(
-			'http://localhost:5500/api/submitAPI',
-			options
-		);
+		const response = await fetch(`${baseURL}/api/submitAPI`, options);
 
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
