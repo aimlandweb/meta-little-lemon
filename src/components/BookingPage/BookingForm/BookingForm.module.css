@@ -56,6 +56,12 @@
 	color: #333333;
 }
 
+.timeSlotNotSelected{
+	color: #EE9972;
+	font-size: 1rem;
+	padding-left: 1rem;
+}
+
 .button {
 	background-color: #f4ce14;
 	color: #333333;

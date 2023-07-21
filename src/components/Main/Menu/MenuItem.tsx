@@ -1,22 +1,25 @@
 import {MdDeliveryDining} from 'react-icons/md'
 import styles from './MenuItem.module.css';
 
-const MenuItem = () => {
+interface MenuItemProps {
+	description: string;
+	title: string;
+	price: string;
+	imgURL:string;
+}
+
+const MenuItem:React.FC<MenuItemProps> = ({description,title,price,imgURL}) => {
 	return (
 		<article className={styles.menuItem}>
 			<div className={styles.itemImage}>
-				<img src='/greekSalad.jpg' alt='Greek Salad' />
+				<img src={`/${imgURL}`} alt='Greek Salad' />
 			</div>
 			<div className={styles.itemContent}>
 				<div className={styles.itemHeader}>
-					<p className={styles.itemTitle}>Greek Salad</p>
-					<p className={styles.itemPrice}>$ 12.99</p>
+					<p className={styles.itemTitle}>{title}</p>
+					<p className={styles.itemPrice}>{`$ ${price}`}</p>
 				</div>
-				<p className={styles.itemDescription}>
-					The famous greek salad of crispy lettuce, peppers, olives and our
-					Chicago style feta cheese, garnished with crunchy garlic and rosemary
-					croutons.
-				</p>
+				<p className={styles.itemDescription}>{description}</p>
 				<div className={styles.itemFooter}>
 					<p className={styles.itemDelivery}>
 						<a href='/'>Order a delivery</a>

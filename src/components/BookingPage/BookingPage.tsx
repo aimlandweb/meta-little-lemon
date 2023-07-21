@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BookingForm, { FormData } from './BookingForm/BookingForm';
 import BookingSlot from './BookingSlot/BookingSlot';
+import * as API from '../../api';
 import styles from './BookingPage.module.css';
 
 export interface Submission extends FormData {
@@ -13,7 +14,7 @@ export interface Submission extends FormData {
 }
 
 const BookingPage: React.FC = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const [date, setDate] = useState<string>(
 		new Date().toISOString().split('T')[0]
 	);
@@ -21,7 +22,6 @@ const BookingPage: React.FC = () => {
 	const [occasion, setOccasion] = useState<string>('Birthday');
 	const [time, setTime] = useState<string>('17:00');
 	const [availableTimes, setAvailableTimes] = useState<Submission[]>([]);
-
 	const defaultSlots = [
 		'',
 		'17:00',
@@ -71,31 +71,50 @@ const BookingPage: React.FC = () => {
 			},
 			body: JSON.stringify(payload),
 		};
-		const response = await fetch(
-			'http://localhost:5500/api/submitAPI',
-			options
-		);
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
+
+		try {
+			const data: Submission | null = await API.submitAPI(options); // Use the submitAPI method to submit data to the server
+			if (data) {
+				setAvailableTimes((prev) => [...prev, data]);
+			}
+			setTime('');
+			setNoOfGuests(1);
+			setOccasion('Birthday');
+			navigate('/confirmed', { state: payload });
+		} catch (error) {
+			console.error('Error:', error);
 		}
-		const data: Submission = await response.json();
+		// const response = await fetch(
+		// 	'http://localhost:5500/api/submitAPI',
+		// 	options
+		// );
+		// if (!response.ok) {
+		// 	throw new Error('Network response was not ok');
+		// }
+		// const data: Submission = await response.json();
 
-		setAvailableTimes((prev) => [...prev, data]);
+		// setAvailableTimes((prev) => [...prev, data]);
 
-		setTime('');
-		setNoOfGuests(1);
-		setOccasion('Birthday');
-		navigate('/confirmed',{state:payload})
+		// setTime('');
+		// setNoOfGuests(1);
+		// setOccasion('Birthday');
+		// navigate('/confirmed',{state:payload})
 	};
 
 	useEffect(() => {
 		(async () => {
+			// try {
+			// 	const response = await fetch('http://localhost:5500/api/fetchAPI');
+			// 	if (!response.ok) {
+			// 		throw new Error('Network response was not ok');
+			// 	}
+			// 	const data: Submission[] = await response.json();
+			// 	setAvailableTimes(data);
+			// } catch (error) {
+			// 	console.error('Error:', error);
+			// }
 			try {
-				const response = await fetch('http://localhost:5500/api/fetchAPI');
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				const data: Submission[] = await response.json();
+				const data: Submission[] = await API.fetchAPI(); // Use the fetchAPI method to fetch data from the server
 				setAvailableTimes(data);
 			} catch (error) {
 				console.error('Error:', error);
