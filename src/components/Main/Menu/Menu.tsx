@@ -1,14 +1,15 @@
 import MenuItem from './MenuItem';
 import styles from './Menu.module.css';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
 	return (
 		<div className={styles.menu}>
 			<div className={styles.menuHeader}>
 				<h1>This weeks specials!</h1>
-				<a href='/menu' type='button'>
+				<Link to='/menu' type='button'>
 					Online Menu
-				</a>
+				</Link>
 			</div>
 			<div className={styles.menuItems}>
 				<MenuItem

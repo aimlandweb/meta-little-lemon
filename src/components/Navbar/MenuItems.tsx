@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './MenuItems.module.css';
 
 interface MenuItemsProps {
@@ -8,22 +9,22 @@ const MenuItems: React.FC<MenuItemsProps> = ({ isOpen }) => {
 	return (
 		<ul className={`${styles['navMenu']} ${isOpen ? styles.open : ''}`}>
 			<li>
-				<a href='/'>Home</a>
+				<Link to='/'>Home</Link>
 			</li>
 			<li>
-				<a href='#about'>About</a>
+				<Link to='#about'>About</Link>
 			</li>
 			<li>
-				<a href='/home'>Menu</a>
+				<Link to='/home'>Menu</Link>
 			</li>
 			<li>
-				<a href='/booking'>Reservations</a>
+				<Link to='/booking'>Reservations</Link>
 			</li>
 			<li>
-				<a href='/'>Order Online</a>
+				<Link to='/'>Order Online</Link>
 			</li>
 			<li>
-				<a href='/'>Login</a>
+				<Link to='/'>Login</Link>
 			</li>
 		</ul>
 	);

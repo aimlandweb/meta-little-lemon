@@ -1,5 +1,6 @@
 import {MdDeliveryDining} from 'react-icons/md'
 import styles from './MenuItem.module.css';
+import { Link } from 'react-router-dom';
 
 interface MenuItemProps {
 	description: string;
@@ -22,7 +23,7 @@ const MenuItem:React.FC<MenuItemProps> = ({description,title,price,imgURL}) => {
 				<p className={styles.itemDescription}>{description}</p>
 				<div className={styles.itemFooter}>
 					<p className={styles.itemDelivery}>
-						<a href='/'>Order a delivery</a>
+						<Link to='/'>Order a delivery</Link>
 					</p>
 					<p className={styles.itemDeliveryIcon}>
 						<MdDeliveryDining />
