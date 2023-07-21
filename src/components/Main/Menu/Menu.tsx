@@ -24,7 +24,7 @@ const Menu = () => {
 					description='Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.'
 					title='Bruchetta'
 					price='5.99'
-					imgURL='bruschetta.jpeg'
+					imgURL='bruschetta.jpg'
 				/>
 				<MenuItem
 					description='This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.'
